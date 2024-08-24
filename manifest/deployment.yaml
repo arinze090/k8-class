@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helmapp-deployments
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helmapp
+  template:
+    metadata:
+      labels:
+        app: helmapp
+    spec:
+      containers:
+      - name: helmapp-container
+        image: arinze090/helmapp:helmapp
+        ports:
+        - containerPort: 80
